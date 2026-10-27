@@ -1,0 +1,72 @@
+:root {
+    --margin-tb: 10px;
+    --margin-rl: 10px;
+    --sidebar-width: 275px;
+    --box-pad: 16px;
+    --grid-gaps: 16px;
+    --fieldset-gaps: 8px;
+    --box-border: 1px solid;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+#_DIV_CONTAINER {
+    width: 100%;
+    margin: var(--margin-tb) var(--margin-rl);
+    height: 95vw;
+    padding: 24px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "LL TT TT"
+        "LL BL BR"
+    ;
+    gap: var(--grid-gaps);
+}
+
+.contentBox {
+    border: var(--box-border);
+    padding: var(--box-pad);
+}
+
+#_DIV_L {
+    grid-area: LL;
+}
+
+#_DIV_T {
+    grid-area: TT;
+}
+
+#_DIV_BL {
+    grid-area: BL;
+}
+
+#_DIV_BR {
+    grid-area: BR;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fieldset-gaps);
+}
+
+#_OPTS_CHECKS {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fieldset-gaps);
+}

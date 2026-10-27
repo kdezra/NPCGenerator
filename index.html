@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kdezra's NPC Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="_DIV_CONTAINER">
+        <div id="_DIV_L">
+            <form id="_NPCGEN_FORM">
+                <label for="_ROLE_SELECT">Role / Job</label>
+                <select id="_ROLE_SELECT"></select>
+
+                <label for="_FLAVOR_SELECT">Flavor</label>
+                <select id="_FLAVOR_SELECT"></select>
+
+                <fieldset id="_GENDER_SET">
+                    <legend>Gender</legend>
+                    <label><input type="radio" name="option" value="m">Man</label>
+                    <label><input type="radio" name="option" value="f">Woman</label>
+                    <label><input type="radio" name="option" value="o">Other</label>
+                    <label><input type="radio" name="option" value="a" selected>Any</label>
+                </fieldset>
+
+                <fieldset id="_IMPORTANCE_SET">
+                    <legend>Campaign Importance</legend>
+                    <label><input type="radio" name="option" value="0">0 - Background</label>
+                    <label><input type="radio" name="option" value="1">1 - Throwaway</label>
+                    <label><input type="radio" name="option" value="2">2 - Recurring</label>
+                    <label><input type="radio" name="option" value="3">3 - Influential</label>
+                    <label><input type="radio" name="option" value="4">4 - VIP</label>
+                </fieldset>
+
+                <fieldset id="_OPTS_SET">
+                    <legend>Other Options</legend>
+                    <div id="checkboxes"></div>
+                </fieldset>
+
+                <button type="submit" id="_SUBMIT_BTN">Generate</button>
+            </form>
+        </div>
+
+        <div id="_DIV_T">
+            <p>Content...</p>
+        </div>
+
+        <div id="_DIV_BL">
+            <p>Content...</p>
+        </div>
+
+        <div id="_DIV_BR">
+            <p>Content...</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,26 +1,56 @@
 const selectOptions = {
     "role":[
-        "role1",
-        "role2",
+        "Commoner",
+        "Powerful",
+        // TODO: more generic roles
         "sep",
-        "role3",
-        "role4"
+        "Rogue",
+        "Rogue - Thief",
+        "Rogue - Assassin",
+        "Rogue - Smuggler",
+        "Rogue - Bandit",
+        "Rogue - Swashbuckler",
+        "Rogue - Trickster",
+        "sep",
+        "Martial",
+        "Martial - Brute",
+        "Martial - Soldier",
+        "Martial - Finesse",
+        "Martial - Archery",
+        "sep",
+        "Spellcaster",
+        "Spellcaster - Arcane",
+        "Spellcaster - Divine",
+        "Spellcaster - Nature",
+        "Spellcaster - Demonic",
+        "Spellcaster - Sorcery",
+        "Spellcaster - Eldritch",
+        "sep",
+        "Spellsword",
+        "Spellsword - Arcane",
+        "Spellsword - Divine",
+        "Spellsword - Demonic",
+        "Spellsword - Eldritch"
     ],
     "flavor":[
-        "flavor1",
-        "flavor2",
-        "flavor3",
+        "Generic",
         "sep",
-        "flavor4"
+        "Pathfinder/D&D: Demonic",
+        "Pathfinder/D&D: Draconic",
+        "Pathfinder/D&D: Elvish",
+        "Pathfinder/D&D: Dwarvish",
+        "Pathfinder/D&D: Orcish",
+        "sep",
+        "Blades in the Dark: Human",
+        "Blades in the Dark: Demon"
+        // TODO: Add more flavors
     ]
 };
 
 const checkboxOptions = {
     "opts": {
-        c1: "Option 1",
-        c2: "Option 2",
-        c3: "Option 3",
-        c4: "Option 4"
+        vibes: "Generate Vibes",
+        plothook: "Include Plothook"
     }
 };
 
@@ -82,7 +112,7 @@ function generateNPC() {
 
 document.addEventListener("DOMContentLoaded", event => {
     populateSelect("role");
-    populateSelect("flavor");
+    populateSelect("flavor", addDefault=false);
     populateCheckboxes("opts");
 
     document.getElementById("_NPCGEN_FORM").addEventListener("submit", event => {

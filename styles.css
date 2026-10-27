@@ -27,9 +27,9 @@
 
 @media (max-width: 750px) {
     :root {
-        --grid-layout: "LL LL" "TT TT" "BL BR";
-        --grid-cols: 1fr 1fr;
-        --grid-rows: var(--sidebar-width) 1fr 1fr;
+        --grid-layout: "LL" "TT" "BL" "BR";
+        --grid-template-columns: 1fr;
+        --grid-template-rows: auto auto auto auto;
     }
 }
 
@@ -69,19 +69,20 @@ form {
         "F_LAB2" "F_SEL2"
         "F_GEN" "F_IMP" "F_OPT" "F_BTN"
     ;
+    grid-template-rows: 20px 25px 20px 25px auto auto auto 25px;
 }
 
 fieldset {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: var(--fieldset-gaps);
     border: var(--field-border);
     flex-wrap: wrap;
-    width: 100%;
 }
 
 select {
     min-width: 150px;
+    height: 24px;
 }
 
 #_DIV_LL {
@@ -122,7 +123,7 @@ select {
     grid-area: F_OPT;
 }
 #_SUBMIT_BTN {
-  grid-area: F_BTN;
+    grid-area: F_BTN;
 }
 
 #_OPTS_CHECKS {
@@ -134,8 +135,6 @@ select {
 
 @media (max-width: 750px) {
     form {
-        grid-row: auto;
-        grid-column: auto;
         grid-template-areas:
             "F_LAB1 F_GEN"
             "F_SEL1 F_GEN"
@@ -143,6 +142,11 @@ select {
             "F_SEL2 F_IMP"
             "F_OPT F_OPT"
             "F_BTN F_BTN"
-    ;
+        ;
+        grid-template-rows: 150px auto;
+        grid-template-rows: 20px 25px 20px 25px 50px 25px;
+    }
+    fieldset {
+        flex-direction: row;
     }
 }

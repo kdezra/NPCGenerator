@@ -1,16 +1,41 @@
 :root {
-    --margin-tb: 10px;
-    --margin-rl: 10px;
-    --sidebar-width: 275px;
+    --pad-tb: 25px;
+    --pad-rl: 25px;
+    --sidebar-width: 300px;
     --box-pad: 16px;
-    --grid-gaps: 16px;
     --fieldset-gaps: 8px;
-    --box-border: 1px solid;
+    --box-border: 2px solid var(--gray5);
+    --fieldset-border: 1px solid var(--gray5);
+    --grid-layout: "LL TT TT" "LL BL BR";
+    --grid-cols: var(--sidebar-width) 1fr 1fr;
+    --grid-rows: 1fr 1fr;
+    --grid-gaps: 16px;
+    --container-width: 1200px;
+}
+
+@media (max-width: 950px) {
+    :root {
+        --sidebar-width: 250px;
+    }
+}
+
+@media (max-width: 820px) {
+    :root {
+        --sidebar-width: 200px;
+    }
+}
+
+@media (max-width: 750px) {
+    :root {
+        --grid-layout: "LL LL" "TT TT" "BL BR";
+        --grid-cols: 1fr 1fr;
+        --grid-rows: var(--sidebar-width) 1fr 1fr;
+    }
 }
 
 body {
     margin: 0;
-    width: 100%;
+    width: min(100%, var(--container-width));
     min-height: 100vh;
     display: grid;
     place-items: center;
@@ -18,30 +43,52 @@ body {
 
 #_DIV_CONTAINER {
     width: 100%;
-    margin: var(--margin-tb) var(--margin-rl);
-    height: 95vw;
-    padding: 24px;
+    height: 100%;
+    margin: auto;
+    padding: var(--pad-tb) var(--pad-rl);
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: var(--sidebar-width) 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-        "LL TT TT"
-        "LL BL BR"
-    ;
+    grid-template-columns: var(--grid-cols);
+    grid-template-rows: var(--grid-rows);
+    grid-template-areas: var(--grid-layout);
     gap: var(--grid-gaps);
 }
 
 .contentBox {
     border: var(--box-border);
     padding: var(--box-pad);
+    border-radius: 3px;
 }
 
-#_DIV_L {
+form {
+    display: grid;
+    gap: 12px;
+    height: 100%;
+    grid-template-areas:
+        "F_LAB1" "F_SEL1"
+        "F_LAB2" "F_SEL2"
+        "F_GEN" "F_IMP" "F_OPT" "F_BTN"
+    ;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: row;
+    gap: var(--fieldset-gaps);
+    border: var(--field-border);
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+select {
+    min-width: 150px;
+}
+
+#_DIV_LL {
     grid-area: LL;
 }
 
-#_DIV_T {
+#_DIV_TT {
     grid-area: TT;
 }
 
@@ -53,20 +100,49 @@ body {
     grid-area: BR;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+#_ROLE_SELECT_LABEL {
+    grid-area: F_LAB1;
 }
-
-fieldset {
-    display: flex;
-    flex-direction: column;
-    gap: var(--fieldset-gaps);
+#_ROLE_SELECT {
+    grid-area: F_SEL1;
+}
+#_FLAVOR_SELECT_LABEL {
+    grid-area: F_LAB2;
+}
+#_FLAVOR_SELECT {
+    grid-area: F_SEL2;
+}
+#_GENDER_SET {
+    grid-area: F_GEN;
+}
+#_IMPORTANCE_SET {
+    grid-area: F_IMP;
+}
+#_OPTS_SET {
+    grid-area: F_OPT;
+}
+#_SUBMIT_BTN {
+  grid-area: F_BTN;
 }
 
 #_OPTS_CHECKS {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--fieldset-gaps);
+}
+
+@media (max-width: 750px) {
+    form {
+        grid-row: auto;
+        grid-column: auto;
+        grid-template-areas:
+            "F_LAB1 F_GEN"
+            "F_SEL1 F_GEN"
+            "F_LAB2 F_IMP"
+            "F_SEL2 F_IMP"
+            "F_OPT F_OPT"
+            "F_BTN F_BTN"
+    ;
+    }
 }

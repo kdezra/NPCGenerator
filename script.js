@@ -2,9 +2,12 @@ const selectOptions = {
     "role":[
         "Commoner",
         "Merchant",
-        "Merchant"
-        "Merchant - Powerful",
-        ""
+        "Shopkeep",
+        "Diplomat",
+        "Noble",
+        "Laborer",
+        "Craftsman",
+        "Hospitality Worker",
         // TODO: more generic roles
         "sep",
         "Rogue",

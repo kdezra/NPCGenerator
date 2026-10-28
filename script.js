@@ -113,7 +113,7 @@ function generateNPC(event) {
     const flavorVal = document.getElementById("_FLAVOR_SELECT").value;
     const genderVal = getFirstCheckedVal("_GENDER_SET", "a");
     const importanceVal = getFirstCheckedVal("_IMPORTANCE_SET", "0");
-    const optVals = getFirstCheckedVal("_OPTS_SET");
+    const optVals = getCheckedVals("_OPTS_SET");
     
     const formOptions = {
         role: roleVal,
@@ -122,7 +122,7 @@ function generateNPC(event) {
         importance: importanceVal,
         opts: optVals
     }
-    
+
     console.log(formOptions)
 
     generateName(formOptions)

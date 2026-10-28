@@ -113,7 +113,7 @@ select {
 }
 #_IMPORTANCE_SET {
     grid-area: F_IMP;
-    max-height: 150px;
+    max-height: 175px;
 }
 #_OPTS_SET {
     grid-area: F_OPT;

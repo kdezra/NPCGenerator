@@ -1,7 +1,10 @@
 const selectOptions = {
     "role":[
         "Commoner",
-        "Powerful",
+        "Merchant",
+        "Merchant"
+        "Merchant - Powerful",
+        ""
         // TODO: more generic roles
         "sep",
         "Rogue",
@@ -35,12 +38,18 @@ const selectOptions = {
     "flavor":[
         "Generic",
         "sep",
+        "Pathfinder/D&D: Any"
+        "Pathfinder/D&D: Human",
         "Pathfinder/D&D: Demonic",
         "Pathfinder/D&D: Draconic",
         "Pathfinder/D&D: Elvish",
         "Pathfinder/D&D: Dwarvish",
         "Pathfinder/D&D: Orcish",
+        "Pathfinder/D&D: Gnomish",
+        "Pathfinder/D&D: Halfling",
+        "Pathfinder/D&D: Drow",
         "sep",
+        "Blades in the Dark: Any"
         "Blades in the Dark: Human",
         "Blades in the Dark: Demon"
         // TODO: Add more flavors
@@ -83,16 +92,44 @@ function populateSelect(name, addDefault = true) {
     });
 }
 
-function generateNPC() {
-    console.log("Generate")
+function generateName(details) {
+    console.log(`${details.role} (${details.flavor}) Name`)
+}
+
+function generateAge(details) {
+    console.log(`${details.role} (${details.flavor}) Age`)
+}
+
+function getFirstCheckedVal(parentId, defaultValue=undefined) {
+    return(document.querySelector(`fieldset#${parentId} input:checked`)?.value??defaultValue)
+}
+
+function getCheckedVals(parentId) {
+    return([...document.querySelectorAll(`fieldset#${parentId} input:checked`)].map((e)=>e.value))
+}
+
+function generateNPC(event) {
+    const roleVal = document.getElementById("_ROLE_SELECT").value;
+    const flavorVal = document.getElementById("_FLAVOR_SELECT").value;
+    const genderVal = getFirstCheckedVal("_GENDER_SET", "a");
+    const importanceVal = getFirstCheckedVal("_IMPORTANCE_SET", "0");
+    const optVals = getFirstCheckedVal("_OPTS_SET");
+    
+    const formOptions = {
+        role: roleVal,
+        flavor: flavorVal,
+        gender: genderVal,
+        importance: importanceVal,
+        opts: optVals
+    }
+    
+    console.log(formOptions)
+
+    generateName(formOptions)
 }
 
 document.addEventListener("DOMContentLoaded", event => {
     populateSelect("role");
-    populateSelect("flavor", addDefault=false);
-
-    document.getElementById("_NPCGEN_FORM").addEventListener("submit", event => {
-        event.preventDefault();
-        generateNPC();
-    });
+    populateSelect("flavor");
+    document.getElementById("_NPCGEN_FORM").addEventListener("click", generateNPC);
 })

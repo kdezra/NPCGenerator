@@ -25,19 +25,19 @@
 
                 <fieldset id="_GENDER_SET">
                     <legend>Gender</legend>
-                    <label><input type="radio" name="option" value="m">Man</label>
-                    <label><input type="radio" name="option" value="f">Woman</label>
-                    <label><input type="radio" name="option" value="o">Other</label>
-                    <label><input type="radio" name="option" value="a" selected>Any</label>
+                    <label><input type="radio" name="gender" value="a" selected>Any</label>
+                    <label><input type="radio" name="gender" value="m">Man</label>
+                    <label><input type="radio" name="gender" value="f">Woman</label>
+                    <label><input type="radio" name="gender" value="o">Other</label>
                 </fieldset>
 
                 <fieldset id="_IMPORTANCE_SET">
                     <legend>Campaign Importance</legend>
-                    <label><input type="radio" name="option" value="0">Background</label>
-                    <label><input type="radio" name="option" value="1">Throwaway</label>
-                    <label><input type="radio" name="option" value="2">Recurring</label>
-                    <label><input type="radio" name="option" value="3">Influential</label>
-                    <label><input type="radio" name="option" value="4">VIP</label>
+                    <label><input type="radio" name="importance" value="0" selected>Background</label>
+                    <label><input type="radio" name="importance" value="1">Throwaway</label>
+                    <label><input type="radio" name="importance" value="2">Recurring</label>
+                    <label><input type="radio" name="importance" value="3">Influential</label>
+                    <label><input type="radio" name="importance" value="4">VIP</label>
                 </fieldset>
 
                 <fieldset id="_OPTS_SET">
@@ -54,7 +54,7 @@
                     </div>
                 </fieldset>
 
-                <button type="submit" id="_SUBMIT_BTN">Generate</button>
+                <input type="button" id="_SUBMIT_BTN">Generate</input>
             </form>
         </div>
 
@@ -62,11 +62,11 @@
             <p>Content...</p>
         </div>
 
-        <div id="_DIV_BL" class="contentBox">
+        <div id="_DIV_BL" class="contentBox" style="display:none;">
             <p>Content...</p>
         </div>
 
-        <div id="_DIV_BR" class="contentBox">
+        <div id="_DIV_BR" class="contentBox" style="display:none;">
             <p>Content...</p>
         </div>
     </div>

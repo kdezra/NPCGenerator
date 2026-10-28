@@ -83,29 +83,6 @@ function populateSelect(name, addDefault = true) {
     });
 }
 
-function populateCheckboxes(name) {
-    var id = `_${String(name).toUpperCase()}_CHECKS`
-    var options = checkboxOptions[String(name).toLowerCase()]
-
-    const container = document.getElementById(id);
-
-    Object.entries(options).forEach(([value, label]) => {
-        const element = document.createElement("input");
-        element.type = "checkbox";
-        element.value = value;
-        element.id = `${id}_INPUT`;
-
-        const text = document.createElement("label");
-        text.htmlFor = element.id;
-        text.textContent = label;
-
-        const wrapper = document.createElement("label");
-        wrapper.append(element, text);
-
-        container.appendChild(wrapper);
-    });
-}
-
 function generateNPC() {
     console.log("Generate")
 }
@@ -113,7 +90,6 @@ function generateNPC() {
 document.addEventListener("DOMContentLoaded", event => {
     populateSelect("role");
     populateSelect("flavor", addDefault=false);
-    populateCheckboxes("opts");
 
     document.getElementById("_NPCGEN_FORM").addEventListener("submit", event => {
         event.preventDefault();

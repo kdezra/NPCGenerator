@@ -63,12 +63,8 @@ form {
     display: grid;
     gap: 12px;
     height: 100%;
-    grid-template-areas:
-        "F_LAB1" "F_SEL1"
-        "F_LAB2" "F_SEL2"
-        "F_GEN" "F_IMP" "F_OPT" "F_BTN"
-    ;
-    grid-template-rows: 20px 25px 20px 25px auto auto auto 25px;
+    grid-template-areas: "F_LAB1" "F_SEL1" "F_LAB2" "F_SEL2" "F_GEN" "F_IMP" "F_OPT" "F_BTN";
+    grid-template-rows: 20px 25px 20px 25px 140px 175px 100px 25px;
 }
 
 fieldset {
@@ -113,12 +109,15 @@ select {
 }
 #_GENDER_SET {
     grid-area: F_GEN;
+    max-height: 120px;
 }
 #_IMPORTANCE_SET {
     grid-area: F_IMP;
+    max-height: 150px;
 }
 #_OPTS_SET {
     grid-area: F_OPT;
+    max-height: 75px;
 }
 #_SUBMIT_BTN {
     grid-area: F_BTN;
@@ -132,6 +131,9 @@ select {
 }
 
 @media (max-width: 750px) {
+    :root {
+        --sidebar-width: 100%;
+    }
     form {
         grid-template-areas:
             "F_LAB1 F_GEN"
@@ -142,7 +144,7 @@ select {
             "F_BTN F_BTN"
         ;
         grid-template-rows: 150px auto;
-        grid-template-rows: 20px 25px 20px 25px 50px 25px;
+        grid-template-rows: 20px auto 20px auto auto 25px;
     }
     fieldset {
         flex-direction: row;
